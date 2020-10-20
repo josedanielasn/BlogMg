@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
   def delete
     @comment = Comment.find(params[:comment_id])   
     @comment.destroy
+    byebug
     redirect_to blog_show_path(user_id: @blog.user.id, blog_id: @blog.id)
   end
 

@@ -35,6 +35,7 @@
   <br>
 
 <%= form_with model: @blog.comments.build(), url: create_comment_path(user_id: @user.id, blog_id: @blog.id) do |f| %>
+  
   <div>
     <strong>Commenter: </strong>
     <%= f.text_field :commenter %>
