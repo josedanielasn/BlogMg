@@ -1,0 +1,50 @@
+<h1>Show Blog</h1>
+
+<%= render 'layouts/username' %>
+
+<p>
+  <%= link_to  "Edit", edit_blog_path(user_id: @user.id, blog_id: @blog.id) %> | 
+  <%= link_to  "Delete", delete_blog_path(user_id: @user.id, blog_id: @blog.id), method: :delete, data: { confirm: 'Are you sure?' }%> | 
+  <%= link_to  "List of Blogs", show_user_path(@user)%>
+</p>
+<div>
+  <strong>Title: </strong>
+  <%= @blog.title%>
+</div>
+  <br>
+<div>
+  <strong>Text: </strong>
+  <%= @blog.content_text %>
+</div>
+
+<h2> Comments: </h2>
+  <table>
+    <% if @comments.empty? %>
+        <p>No comments.</p>
+    <%else%>
+      <% @comments.map do |comment|%>
+      <tr>
+        <td><strong><%= comment.commenter%>: </strong></td>
+        <td><%= comment.comment_text%></td>
+        <td><%= link_to  "delete", delete_comment_path(blog_id: @blog, comment_id: comment.id), method: :delete %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <br>
+  <br>
+
+<%= form_with model: @blog.comments.build(), url: create_comment_path(user_id: @user.id, blog_id: @blog.id) do |f| %>
+  <div>
+    <strong>Commenter: </strong>
+    <%= f.text_field :commenter %>
+  </div>
+  <br>
+   <div>
+    <strong>Comment: </strong>
+    <%= f.text_area :comment_text %>
+  </div>
+  <br>
+  <%= f.submit%>
+<% end %>
+

@@ -1,0 +1,22 @@
+<h1> Edit blog </h1>
+
+<%= render 'layouts/username' %>
+
+<%= form_with model: @blog, url: update_blog_path(@blog) do |f| %>
+  <div>
+    <strong>Title: </strong>
+    <%= f.text_field :title %>
+  </div>
+  <br>
+   <div>
+    <strong>Content: </strong>
+    <%= f.text_area :content_text %>
+  </div>
+  <br>
+  <%= f.submit%>
+<% end %>
+
+<p>
+  <%= link_to  "Back", show_blog_path(user_id: @user.id, blog_id: @blog.id) %>
+  <%= link_to  "List of Blogs", show_blog_path(@user)%>
+</p>
