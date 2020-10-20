@@ -1,0 +1,23 @@
+<h1>
+  <span>Username:</span>
+  <span><%= @user.username %></span>
+</h1>
+
+<%= link_to  "list of users", index_user_path %>
+
+<h2> Blogs: </h2>
+
+<p><%= link_to  "Write new blog", new_blog_path(user_id: @user.id) %></p>
+
+<table>
+<% @blogs.map do |blog|%>
+  <tr>
+    <td><strong><%= blog.title%></strong></td>
+    <td><%= blog.content_text%></td>
+    <td><%= link_to  "Show", show_blog_path(user_id: @user.id, blog_id: blog.id) %></td>
+    <td><%= link_to  "Edit", edit_blog_path(user_id: @user.id, blog_id: blog.id) %></td>
+    <td><%= link_to  "Delete", delete_blog_path(user_id: @user.id, blog_id: blog.id), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+

@@ -1,0 +1,22 @@
+<h1>All Users</h1>
+
+<p><%= link_to  "Create new user", new_user_path %></p>
+
+<table>
+    <tr>
+      <th>Firstname</th>
+      <th>lastname</th>
+      <th>username</th>
+    </tr>
+    <% @users.map do |user|%>
+      <tr>
+        <td><%= user.firstname %></td>
+        <td><%= user.lastname %></td>
+        <td><%= user.username %></td>
+        <td><%= link_to  "Show", show_user_path(user) %></td>
+        <td><%= link_to  "Edit", edit_user_path(user) %></td>
+        <td><%= link_to  "Delete", delete_user_path(user), method: :delete %></td>
+      </tr>
+    <% end %> 
+</table>
+
