@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-
+  before_action :find_blog
   def new
     find_blog
     @blog = @user.blogs.build()
