@@ -10,8 +10,14 @@
   <span> No blogs yet. </span>
 <% else %>
   <table>
+      <tr>
+        <th>Writter</th>
+        <th>Title</th>
+        <th>Blog</th>
+      </tr>
     <% @blogs.map do |blog|%>
       <tr>
+        <td><%= link_to  blog.user.username, show_user_path(blog.user) %></td>
         <td><strong><%= blog.title%></strong></td>
         <td><%= blog.content_text%></td>
         <td><%= link_to  "Show", show_blog_path(user_id: blog.user, blog_id: blog.id) %></td>
