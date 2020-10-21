@@ -7,7 +7,11 @@
 
 <h2> Blogs: </h2>
 
-<p><%= link_to  "Write new blog", new_blog_path(user_id: @user.id) %></p>
+
+<% if current_user == @user %>
+  <p><%= link_to  "Write new blog", new_blog_path(user_id: current_user.id) %></p>
+<% end %>
+
 
 <table>
 <% @blogs.map do |blog|%>
@@ -15,8 +19,10 @@
     <td><strong><%= blog.title%></strong></td>
     <td><%= blog.content_text%></td>
     <td><%= link_to  "Show", show_blog_path(user_id: @user.id, blog_id: blog.id) %></td>
-    <td><%= link_to  "Edit", edit_blog_path(user_id: @user.id, blog_id: blog.id) %></td>
-    <td><%= link_to  "Delete", delete_blog_path(user_id: @user.id, blog_id: blog.id), method: :delete %></td>
+      <% if blog.user == current_user %>
+        <td><%= link_to  "Edit", edit_blog_path(user_id: @user.id, blog_id: blog.id) %></td>
+        <td><%= link_to  "Delete", delete_blog_path(user_id: @user.id, blog_id: blog.id), method: :delete %></td>
+      <% end %>
   </tr>
 <% end %>
 </table>

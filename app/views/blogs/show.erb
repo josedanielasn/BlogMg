@@ -3,8 +3,10 @@
 <%= render 'layouts/username' %>
 
 <p>
-  <%= link_to  "Edit", edit_blog_path(user_id: @user.id, blog_id: @blog.id) %> | 
-  <%= link_to  "Delete", delete_blog_path(user_id: @user.id, blog_id: @blog.id), method: :delete, data: { confirm: 'Are you sure?' }%> | 
+  <% if current_user.id == params[:user_id] %>
+    <%= link_to  "Edit", edit_blog_path(user_id: @user.id, blog_id: @blog.id) %> | 
+    <%= link_to  "Delete", delete_blog_path(user_id: @user.id, blog_id: @blog.id), method: :delete, data: { confirm: 'Are you sure?' }%> | 
+  <% end %>
   <%= link_to  "List of Blogs", show_user_path(@user)%>
 </p>
 <div>
