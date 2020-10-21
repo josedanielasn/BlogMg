@@ -12,20 +12,26 @@
 <br>
 <br>
 <table>
+List of Users:
     <tr>
       <th>Firstname</th>
       <th>lastname</th>
       <th>username</th>
     </tr>
-    <% @users.map do |user|%>
-      <% if user != current_user %>
-        <tr>
-          <td><%= user.firstname %></td>
-          <td><%= user.lastname %></td>
-          <td><%= user.username %></td>
-          <td><%= link_to  "Blogs", show_user_path(user) %></td>
-        </tr>
-      <% end %>
-    <% end %> 
+    
+    <% if @users.count == 1 %>
+      <td> No other users. </td>
+    <% else %>
+      <% @users.map do |user|%>
+        <% if user != current_user %>
+          <tr>
+            <td><%= user.firstname %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.username %></td>
+            <td><%= link_to  "Blogs", show_user_path(user) %></td>
+          </tr>
+        <% end %>
+      <% end %> 
+    <% end %>
 </table>
 

@@ -9,7 +9,7 @@ class BlogsController < ApplicationController
     if @blog.save 
       redirect_to show_user_path(@user)
     else
-      render 'users/show'
+      render 'new'
     end
   end
 

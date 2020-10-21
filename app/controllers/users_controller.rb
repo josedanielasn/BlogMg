@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     
   end
 
-  def udpate
+  def update
     if @user.update(user_params)
       redirect_to index_user_path
     else

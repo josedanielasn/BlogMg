@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
     @user = User.find(params[:user_id])
     @blog = @user.blogs.find(params[:blog_id])
     @comment = @blog.comments.create(comment_params)
-    
     redirect_to show_blog_path(user_id: @user.id, blog_id: @blog.id)
   end
 

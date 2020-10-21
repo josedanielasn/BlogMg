@@ -2,7 +2,8 @@
 
 <%= render 'layouts/username' %>
 
-<%= form_with model: @blog, url: update_blog_path(@blog) do |f| %>
+<%= form_with model: @blog, url: update_blog_path(@blog), local: true do |f| %>
+ <%= render 'devise/shared/error_general', resource: @blog %>
   <div>
     <strong>Title: </strong>
     <%= f.text_field :title %>
