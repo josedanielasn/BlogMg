@@ -1,5 +1,10 @@
 class BlogsController < ApplicationController
   before_action :find_blog, except: [:show]
+
+  def index
+    @blogs = Blog.all
+  end
+
   def new
     @blog  = @user.blogs.build()
   end
@@ -15,7 +20,7 @@ class BlogsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
-    @blog = @user.blogs.find(params[:blog_id])
+    @blog = Blog.find(params[:blog_id])
     @comments = @blog.comments
   end
 
