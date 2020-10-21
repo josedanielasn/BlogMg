@@ -1,6 +1,7 @@
 <h1> Write new blog </h1>
 
-<%= form_with model: @blog, url: create_blog_path(user_id: @user.id) do |f| %>
+<%= form_with model: @blog, url: create_blog_path(user_id: @user.id), local: true do |f| %>
+  <%= render 'devise/shared/error_general', resource: @blog %>
   <div>
     <strong>Title: </strong>
     <%= f.text_field :title %>
