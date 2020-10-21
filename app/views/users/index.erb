@@ -1,6 +1,10 @@
 <h1>All Users</h1>
 
-<p><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></p>
+<p>
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete%> |
+  <%= link_to  "All Blogs", index_blog_path(user_id: current_user) %> |
+  <%= link_to  "Write new blog", new_blog_path(user_id: current_user.id) %>
+</p>
 
 <td><%= current_user.firstname %></td>
 <td><%= current_user.lastname %></td>
