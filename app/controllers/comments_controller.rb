@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
 
   def create
-    find_blog
+    @user = User.find(params[:user_id])
+    @blog = @user.blogs.find(params[:blog_id])
     @comment = @blog.comments.create(comment_params)
     
     redirect_to show_blog_path(user_id: @user.id, blog_id: @blog.id)
@@ -9,9 +10,9 @@ class CommentsController < ApplicationController
 
   def delete
     @comment = Comment.find(params[:comment_id])   
+    @blog = @comment.blog
     @comment.destroy
-    byebug
-    redirect_to blog_show_path(user_id: @blog.user.id, blog_id: @blog.id)
+    redirect_to show_blog_path(user_id: @blog.user.id, blog_id: @blog.id)
   end
 
   private
