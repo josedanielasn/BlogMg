@@ -3,7 +3,10 @@
   <span><%= @user.username %></span>
 </h1>
 
-<%= link_to  "list of users", index_user_path %>
+<p>
+  <%= link_to  "list of users", index_user_path %> |
+  <%= link_to  "All Blogs", index_blog_path(user_id: current_user) %>
+</p>
 
 <h2> Blogs: </h2>
 
@@ -31,5 +34,3 @@
     <% end %>
   </table>
 <% end %>
-
-
