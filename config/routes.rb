@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     delete '/user/:id/delete' => 'users#delete', as: 'delete_user'
   
   #blog
+    get '/user/:user_id/blogs' => 'blogs#index', as: 'index_blog'
     get '/user/:user_id/blog/new' => 'blogs#new', as: 'new_blog'
     post '/user/:user_id/blog/create' => 'blogs#create', as: 'create_blog'
     get '/user/:user_id/blog/:blog_id' => 'blogs#show', as: 'show_blog'
