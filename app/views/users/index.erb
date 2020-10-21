@@ -1,7 +1,16 @@
 <h1>All Users</h1>
 
-<p><%= link_to  "Create new user", new_user_path %></p>
+<p><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></p>
 
+<td><%= current_user.firstname %></td>
+<td><%= current_user.lastname %></td>
+<td><%= current_user.username %></td>
+<td><%= link_to  "Blogs", show_user_path(current_user) %></td>
+<td><%= link_to  "Edit", edit_user_path(current_user) %></td>
+<td><%= link_to  "Delete", delete_user_path(current_user), method: :delete %></td>
+<br>
+<br>
+<br>
 <table>
     <tr>
       <th>Firstname</th>
@@ -9,14 +18,14 @@
       <th>username</th>
     </tr>
     <% @users.map do |user|%>
-      <tr>
-        <td><%= user.firstname %></td>
-        <td><%= user.lastname %></td>
-        <td><%= user.username %></td>
-        <td><%= link_to  "Show", show_user_path(user) %></td>
-        <td><%= link_to  "Edit", edit_user_path(user) %></td>
-        <td><%= link_to  "Delete", delete_user_path(user), method: :delete %></td>
-      </tr>
+      <% if user != current_user %>
+        <tr>
+          <td><%= user.firstname %></td>
+          <td><%= user.lastname %></td>
+          <td><%= user.username %></td>
+          <td><%= link_to  "Blogs", show_user_path(user) %></td>
+        </tr>
+      <% end %>
     <% end %> 
 </table>
 
