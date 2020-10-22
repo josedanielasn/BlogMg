@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  let!(:blog) {create(:blog)}
+  let!(:comment) {create(:comment)}
 
   context "when validate" do
 
