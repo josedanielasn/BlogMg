@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def find_blog
     @user = User.find(current_user.id)
-    params[:id] != nil ? @blog = @user.blogs.find(params[:id]) : nil
+    @blog = Blog.find(params[:id])
   end
 
   def find_user

@@ -5,10 +5,10 @@
 <p>
   <% if current_user == @user %>
      <%= link_to  "Edit", edit_user_blog_path(@user, @blog) %> | 
-     <%= link_to  "Delete", user_blog_path(user_id: @user.id, blog_id: @blog.id), method: :delete, data: { confirm: 'Are you sure?' }%> | 
+     <%= link_to  "Delete", user_blog_path(@user, @blog), method: :delete, data: { confirm: 'Are you sure?' }%> | 
   <% end %>
   <%= link_to  "Blogs of writter", user_path(@user)%> |
-  <%= link_to  "All Blogs", root_path(user_id: current_user) %>
+  <%= link_to  "All Blogs", root_path() %>
 </p>
 <div>
   <strong>Title: </strong>

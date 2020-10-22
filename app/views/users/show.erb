@@ -3,7 +3,7 @@
 <%= render 'layouts/username', user: @user%>
 <p>
   <%= link_to  "list of users", users_path %> |
-  <%= link_to  "All Blogs", root_path(user_id: current_user) %>
+  <%= link_to  "All Blogs", root_path() %>
 </p>
 
 <h2> Blogs: </h2>
@@ -22,10 +22,10 @@
       <tr>
         <td><strong><%= blog.title%></strong></td>
         <td><%= blog.content_text%></td>
-        <td><%= link_to  "Show", user_blog_path(user_id: @user.id, blog_id: blog.id) %></td>
+        <td><%= link_to  "Show", user_blog_path(blog.user, blog) %></td>
           <% if blog.user == current_user %>
-            <td><%= link_to  "Edit", edit_user_blog_path(user_id: @user.id, blog_id: blog.id) %></td>
-            <td><%= link_to  "Delete", user_blog_path(user_id: @user.id, blog_id: blog.id), method: :delete %></td>
+            <td><%= link_to  "Edit", edit_user_blog_path(blog.user, blog) %></td>
+            <td><%= link_to  "Delete", user_blog_path(blog.user, blog), method: :delete %></td>
           <% end %>
       </tr>
     <% end %>
