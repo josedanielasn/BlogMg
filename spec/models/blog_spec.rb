@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Blog, type: :model do
   let!(:blog) {create(:blog)}
 
-  context "when validate" do
+  context "when validated" do
 
     context "when blog is valid" do
       let(:valid_blog) {build(:blog)}

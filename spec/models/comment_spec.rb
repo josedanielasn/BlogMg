@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
   let!(:comment) {create(:comment)}
 
-  context "when validate" do
+  context "when validated" do
 
     context "when comment is valid" do
       let(:valid_comment) {build(:comment)}
