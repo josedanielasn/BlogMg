@@ -2,16 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  root 'users#index'
+  root 'blogs#index'
 
   #user 
-    get '/user' => 'users#index', as: 'index_user'
-    get '/user/new' => 'users#new', as: 'new_user'
-    post '/user/create' => 'users#create', as: 'create_user'
-    get '/user/:id' => 'users#show', as: 'show_user'
-    get '/user/:id/edit' => 'users#edit', as: 'edit_user'
-    patch '/user/:id/update' => 'users#update', as: 'update_user'
-    delete '/user/:id/delete' => 'users#delete', as: 'delete_user'
+   resources :user
   
   #blog
     get '/user/:user_id/blogs' => 'blogs#index', as: 'index_blog'
