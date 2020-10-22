@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
       it {expect(valid_user).to be_valid}
     end
 
-    context "when username is invalid" do
+    context "when username of user is invalid" do
       let(:username1) {build(:user, username: 'test')}
       let(:username2) {build(:user, username: '1')}
       let(:username3) {build(:user, username: '1' * 16)}
@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
       
     end
 
-    context "when firstname is invalid" do
+    context "when firstname of user is invalid" do
       let(:firstname1) {build(:user, firstname: '1')}
       let(:firstname2) {build(:user, firstname: '1' * 16)}
       let(:firstname3) {build(:user, firstname: nil)}
@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
       
     end
 
-    context "when lastname is invalid" do
+    context "when lastname of user is invalid" do
       let(:lastname1) {build(:user, lastname: '1')}
       let(:lastname2) {build(:user, lastname: '1' * 16)}
       let(:lastname3) {build(:user, lastname: nil)}
