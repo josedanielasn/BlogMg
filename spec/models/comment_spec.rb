@@ -10,7 +10,7 @@ RSpec.describe Comment, type: :model do
       it {expect(valid_comment).to be_valid}
     end
     
-    context "when title is invalid" do
+    context "when title of comment is invalid" do
       let(:comment1) {build(:comment, commenter: nil)}
       let(:comment2) {build(:comment, commenter: '1')}
       let(:comment3) {build(:comment, commenter: '1' * 31)}
@@ -20,7 +20,7 @@ RSpec.describe Comment, type: :model do
       it {expect(comment3).to_not be_valid}
     end
     
-    context "when title is invalid" do
+    context "when comment_text of comment is invalid" do
       let(:comment1) {build(:comment, comment_text: nil)}
       let(:comment2) {build(:comment, comment_text: '1')}
       let(:comment3) {build(:comment, comment_text: '1' * 301)}

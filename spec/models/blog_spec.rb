@@ -10,7 +10,7 @@ RSpec.describe Blog, type: :model do
       it {expect(valid_blog).to be_valid}
     end
     
-    context "when title is invalid" do
+    context "when title of blog  is invalid" do
       let(:blog1) {build(:blog, title: nil)}
       let(:blog2) {build(:blog, title: '1')}
       let(:blog3) {build(:blog, title: '1' * 51)}
@@ -20,7 +20,7 @@ RSpec.describe Blog, type: :model do
       it {expect(blog3).to_not be_valid}
     end
     
-    context "when title is invalid" do
+    context "when content_text of blog is invalid" do
       let(:blog1) {build(:blog, content_text: nil)}
       let(:blog2) {build(:blog, content_text: '1')}
       let(:blog3) {build(:blog, content_text: '1' * 1001)}
