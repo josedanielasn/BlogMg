@@ -3,9 +3,9 @@
 <%= render 'layouts/username', user: @user %>
 
 <p>
-  <% if current_user.id == params[:user_id] %>
-    <%= link_to  "Edit", edit_blog_path(user_id: @user.id, blog_id: @blog.id) %> | 
-    <%= link_to  "Delete", delete_blog_path(user_id: @user.id, blog_id: @blog.id), method: :delete, data: { confirm: 'Are you sure?' }%> | 
+  <% if current_user == @user %>
+     <%= link_to  "Edit", edit_blog_path(user_id: @user.id, blog_id: @blog.id) %> | 
+     <%= link_to  "Delete", delete_blog_path(user_id: @user.id, blog_id: @blog.id), method: :delete, data: { confirm: 'Are you sure?' }%> | 
   <% end %>
   <%= link_to  "Blogs of writter", show_user_path(@user)%> |
   <%= link_to  "All Blogs", index_blog_path(user_id: current_user) %>

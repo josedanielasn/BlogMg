@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :find_blog, except: [:show]
+  before_action :find_blog, except: %i[show]
 
   def index
     @blogs = Blog.all

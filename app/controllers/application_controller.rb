@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
+
   def find_blog
     @user = User.find(current_user.id)
-    params[:blog_id] != nil ? @blog = @user.blogs.find(params[:blog_id]) : 'nil'
+    params[:blog_id] != nil ? @blog = @user.blogs.find(params[:blog_id]) : nil
   end
 
   def find_user
