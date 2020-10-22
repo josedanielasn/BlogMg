@@ -1,25 +1,25 @@
-
+<h1>List of all blogs</h1>
 <%= render 'devise/shared/logged_in_as', user: current_user %>
-<%= render 'layouts/username', user: @user%>
-<p>
-  <%= link_to  "list of users", users_path %> |
-  <%= link_to  "All Blogs", root_path() %>
+
+<p> 
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete%> |
+  <%= link_to  "List of Users", users_path %> |
+  <%= link_to  "Write new blog", new_user_blog_path(user_id: current_user.id) %>
 </p>
 
-<h2> Blogs: </h2>
 
-
-<% if current_user == @user %>
-  <p><%= link_to  "Write new blog", new_user_blog_path(user_id: current_user.id) %></p>
-<% end %>
-
-
-<% if @user.blogs.empty? %>
+<% if @blogs.empty? %>
   <span> No blogs yet. </span>
 <% else %>
   <table>
+      <tr>
+        <th>Writter</th>
+        <th>Title</th>
+        <th>Blog</th>
+      </tr>
     <% @blogs.map do |blog|%>
       <tr>
+        <td><%= link_to  blog.user.username, users_path(blog.user) %></td>
         <td><strong><%= blog.title%></strong></td>
         <td><%= blog.content_text%></td>
         <td><%= link_to  "Show", user_blog_path(blog.user, blog) %></td>
