@@ -7,7 +7,7 @@
      <%= link_to  "Edit", edit_blog_path(user_id: @user.id, blog_id: @blog.id) %> | 
      <%= link_to  "Delete", delete_blog_path(user_id: @user.id, blog_id: @blog.id), method: :delete, data: { confirm: 'Are you sure?' }%> | 
   <% end %>
-  <%= link_to  "Blogs of writter", show_user_path(@user)%> |
+  <%= link_to  "Blogs of writter", user_path(@user)%> |
   <%= link_to  "All Blogs", index_blog_path(user_id: current_user) %>
 </p>
 <div>
