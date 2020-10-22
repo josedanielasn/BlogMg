@@ -3,8 +3,8 @@
 
 <p> 
   <%= link_to "Sign Out", destroy_user_session_path, method: :delete%> |
-  <%= link_to  "List of Users", user_index_path %> |
-  <%= link_to  "Write new blog", new_blog_path(user_id: current_user.id) %>
+  <%= link_to  "List of Users", users_path %> |
+  <%= link_to  "Write new blog", new_user_blog_path(user_id: current_user.id) %>
 </p>
 
 
@@ -19,13 +19,13 @@
       </tr>
     <% @blogs.map do |blog|%>
       <tr>
-        <td><%= link_to  blog.user.username, user_path(blog.user) %></td>
+        <td><%= link_to  blog.user.username, users_path(blog.user) %></td>
         <td><strong><%= blog.title%></strong></td>
         <td><%= blog.content_text%></td>
-        <td><%= link_to  "Show", show_blog_path(user_id: blog.user, blog_id: blog.id) %></td>
+        <td><%= link_to  "Show", user_blog_path(blog, blog.user) %></td>
           <% if blog.user == current_user %>
-            <td><%= link_to  "Edit", edit_blog_path(user_id: blog.user, blog_id: blog.id) %></td>
-            <td><%= link_to  "Delete", delete_blog_path(user_id: blog.user, blog_id: blog.id), method: :delete %></td>
+            <td><%= link_to  "Edit", edit_user_blog_path(blog, blog.user) %></td>
+            <td><%= link_to  "Delete", user_blog_path(blog, blog.user), method: :delete %></td>
           <% end %>
       </tr>
     <% end %>
