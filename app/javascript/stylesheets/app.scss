@@ -1,0 +1,13 @@
+@import '~modularscale-sass/stylesheets/modularscale';
+
+@import '_variables';
+@import './components/login';
+@import './partials/header';
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

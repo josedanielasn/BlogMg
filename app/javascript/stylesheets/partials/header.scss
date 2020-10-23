@@ -1,0 +1,13 @@
+@import '../variables';
+
+.header-login {
+  display: flex;
+  justify-content: space-around;
+  padding: ms(0, $thread: for_padding_margin);
+  background-color: $header_color;
+  font-size: ms(5);
+  font-weight: 800;
+  color: $grey_color1;
+}
+
+
