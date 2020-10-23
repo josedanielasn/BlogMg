@@ -1,0 +1,66 @@
+@import '../variables';
+
+.login-body{
+  display: flex;
+  flex-flow: column;
+  width: 400px;
+  margin: ms(5, $thread: for_padding_margin) auto;
+  padding: ms(3, $thread: for_padding_margin);
+  border: solid 4px $header_color;
+  border-radius: 10px;
+  color: $grey_color1;
+  > .title {
+    font-size: ms(4);
+    margin: 0 auto ms(0, $thread: for_padding_margin);
+  }
+}
+
+.form-parts {
+    display: flex;
+    flex-flow: column;
+    margin: ms(1, $thread: for_padding_margin);
+  
+    &.actions{
+      display: flex;
+      flex-flow: row;
+      width: 100%;
+      justify-content: space-between;
+    }
+    > .checkbox{
+      display: flex;
+      flex-flow: row;
+    }
+    > .label{
+      font-size: ms(2);
+    }
+
+    > .fields {
+      padding: ms(0, $thread: for_padding_margin);
+      padding-bottom: 0;
+      font-size: ms(1);
+      border: none;
+      border-bottom: solid 2px $grey_color1;
+      outline: none;
+    }
+}
+
+.form-button {
+  width: 25%;
+  margin: ms(2, $thread: for_padding_margin) auto;
+  > .button {
+    padding: 4px ms(0, $thread: for_padding_margin);
+    font-size: ms(1);
+    background-color: $grey_color2;
+    border: solid 1px $grey_color1;
+    border-radius: 5px;
+  }
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+
+  > .text{
+    display: block;
+  }
+}

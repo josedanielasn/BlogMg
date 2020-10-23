@@ -1,0 +1,15 @@
+@import '~modularscale-sass/stylesheets/modularscale';
+
+$modularscale: (
+  base: 1em, 
+  ratio: 1.2,
+  for_padding_margin: (
+    base: 0.5em,
+    ratio: 1.5
+  ),
+);
+
+$header_color: rgb(142, 180, 167);
+
+$grey_color1: rgb(95, 92, 92);
+$grey_color2: rgb(194, 194, 194); 
